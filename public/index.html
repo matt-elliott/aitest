@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xubuntu Server Log Viewer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Xubuntu Server Log Viewer</h1>
+            <div class="status-bar">
+                <span id="connection-status" class="status-indicator">Disconnected</span>
+                <span id="last-update">Never</span>
+                <button id="refresh-btn" class="btn btn-small">Refresh</button>
+            </div>
+        </header>
+        <nav class="log-tabs">
+            <button class="tab-btn active" data-log="system">System</button>
+            <button class="tab-btn" data-log="auth">Authentication</button>
+            <button class="tab-btn" data-log="combined">Combined</button>
+            <button class="tab-btn" data-log="error">Errors</button>
+            <button class="tab-btn" data-log="access">Access</button>
+        </nav>
+        <div class="controls">
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="Search logs..." autocomplete="off">
+                <button id="clear-search" class="btn btn-small">Clear</button>
+            </div>
+            <div class="filter-container">
+                <select id="severity-filter">
+                    <option value="">All Severities</option>
+                    <option value="emerg">Emergency</option>
+                    <option value="alert">Alert</option>
+                    <option value="crit">Critical</option>
+                    <option value="err">Error</option>
+                    <option value="warning">Warning</option>
+                    <option value="notice">Notice</option>
+                    <option value="info">Info</option>
+                    <option value="debug">Debug</option>
+                </select>
+                <input type="text" id="program-filter" placeholder="Filter by program..." autocomplete="off">
+            </div>
+        </div>
+        <main class="log-container">
+            <div id="log-content" class="log-content">
+                <div class="loading">Loading logs...</div>
+            </div>
+        </main>
+        <footer>
+            <div class="stats">
+                <span id="total-logs">Total: 0</span>
+                <span id="filtered-logs">Filtered: 0</span>
+                <span id="auto-refresh-status">Auto-refresh: ON</span>
+            </div>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
