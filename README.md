@@ -1,1 +1,2 @@
 # aitest
+Testing Cursor IDE
